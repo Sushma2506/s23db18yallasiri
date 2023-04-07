@@ -7,4 +7,3 @@ Class: Shoe
 
 Attributes: ShoeSize,ShoeType,ShoeBrand
 
-https://s23db18yallasiri.onrender.com --> link to my db server
