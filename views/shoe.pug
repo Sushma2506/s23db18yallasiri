@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  -let results = [{shoeSize : 10 , shoeType : "Sneakers", shoeBrand : "SKECHERS"}, {shoeSize : 9 , shoeType : "Loafers", shoeBrand : "Ralph Lauren"}, {shoeSize : 10 , shoeType : "Hiking Boots", shoeBrand : "Puma"}]
+  div(class="container-fluid")
+  div(class="row")
+   each item,index in results
+    div(class= "col-sm-2", onclick=`buy(${index})`) shoeSize:  #{item.shoeSize}       
+    div(class= "col-sm-2", onclick=`buy(${index})`) shoeType:  #{item.shoeType}   
+    div(class= "col-sm-2", onclick=`buy(${index})`) shoeBrand:   #{item.shoeBrand}
+  script.
+   function buy(a){
+    alert(`You purchased item ${a+1}`)
+   }
