@@ -6,3 +6,4 @@ This is my second server.
 Class: Shoe
 
 Attributes: ShoeSize,ShoeType,ShoeBrand
+
