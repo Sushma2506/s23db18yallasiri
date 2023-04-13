@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  -let results = [{shoeSize : 10 , shoeType : "Sneakers", shoeBrand : "SKECHERS"}, {shoeSize : 9 , shoeType : "Loafers", shoeBrand : "Ralph Lauren"}, {shoeSize : 10 , shoeType : "Hiking Boots", shoeBrand : "Puma"}]
+  -let items = results
   div(class="container-fluid")
   div(class="row")
    each item,index in results
