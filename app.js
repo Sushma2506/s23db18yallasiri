@@ -12,23 +12,29 @@ async function recreateDB() {
   let instance1 = new shoe({ shoeSize: 10, shoeType: "Sneakers", shoeBrand: "SKECHERS" });
   let instance2 = new shoe({ shoeSize: 9, shoeType: "Loafers", shoeBrand: "Ralph Lauren" });
   let instance3 = new shoe({ shoeSize: 10, shoeType: "Hiking Boots", shoeBrand: "Puma" });
+  instance1.save().then(doc=>{
+
+    console.log("First object saved")}
+
+    ).catch(err=>{
+
+    console.error(err)})
+    instance2.save().then(doc=>{
+
+      console.log("Second object saved")}
+
+      ).catch(err=>{
+
+      console.error(err)})
+    instance3.save().then(doc=>{
+
+        console.log("Thrid object saved")}
   
-  instance1.save(function (err, doc) {
-    
-    if (err) return console.error(err);
-    console.log("First object saved")
-  });
-
-  instance2.save(function (err, doc) {
-    if (err) return console.error(err);
-    console.log("Second object saved")
-  });
-
-  instance3.save(function (err, doc) {
-    if (err) return console.error(err);
-    console.log("Third object saved")
-  });
-}
+        ).catch(err=>{
+  
+        console.error(err)})
+        }
+  
 let reseed = true;
 if (reseed) { recreateDB(); }
 
