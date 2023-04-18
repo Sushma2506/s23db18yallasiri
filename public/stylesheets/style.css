@@ -6,3 +6,40 @@ body {
 a {
   color: #00B7FF;
 }
+.shoeAttr {
+  background-color: aquamarine;
+  width: 120px;
+ }
+ .shoeStyle{
+    width: 157px;
+    font-style: oblique;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+    font: 100;
+    font: 1em sans-serif;
+    font-feature-settings: "abvf";
+    text-shadow: 2px 2px 5px red;
+    background-color:beige;
+  }
+ .shoeSize{
+    width: 157px;
+    font-style: oblique;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+    font: 100;
+    font: 1em sans-serif;
+    font-feature-settings: "abvf";
+    text-shadow: 2px 2px 5px red;
+    background-color:beige;
+  }
+  .shoeBrand{
+    width: 157px;
+    font-style: oblique;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+    font: 100;
+    font: 1em sans-serif;
+    font-feature-settings: "abvf";
+    text-shadow: 2px 2px 5px red;
+    background-color:beige;
+  }
