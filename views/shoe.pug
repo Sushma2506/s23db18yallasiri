@@ -1,15 +1,19 @@
 extends layout
 block content
   h1= title
-  - var results = [{"shoeSize":10,"shoeType" :"Sneakers", "shoeBrand":"SKECHERS"}, {"shoeSize":9, "shoeType":"Loafers", "shoeBrand": "Ralph Lauren"}, {"shoeSize": 10, "shoeType": "Hiking Boots", "shoeBrand": "Puma"}];
-
-  div(class = "container-fluid")
-    div(class = "row")
-      each s,index in results 
-        div(class = "col-sm-2" onclick = `buy(${index})`) Size: #{s.shoeSize} <br/> Type: #{s.shoeType} <br/> Brand: #{s.shoeBrand}
+  - let shoe = results
+  div(class="container-fluid")
+  div(class = "row m-1")
+    each s,index in shoe
+     - let destination = `dispatch(\"/shoe/update?id=${s._id}\")`
+     div(class="col-sm-2" class="m-1")
+      div(class="row") #{s.shoeType},(#{s.shoeSize}), #{s.shoeBrand}
+      button.btn( class="btn-primary ml-1", onclick= destination) Update  
+        //- //div(class = "col-sm-2" onclick = `buy(${index})`) Size: #{s.shoeSize} <br/> Type: #{s.shoeType} <br/> Brand: #{s.shoeBrand}
 
   script.
-    function buy(x)
-    { 
-        alert(`You purchased item ${x}`)
-    }
+   function dispatch(path){
+   window.location.href=path
+   }
+
+
