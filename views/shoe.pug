@@ -2,14 +2,20 @@ extends layout
 block content
   h1= title
   - let shoe = results
+  - let c=`dispatch(\"/shoe/create\")`
+  button.btn( class="btn-primary", onclick= c) Create
   div(class="container-fluid")
   div(class = "row m-1")
     each s,index in shoe
      - let destination = `dispatch(\"/shoe/update?id=${s._id}\")`
+     - let d = `dispatch(\"/shoe/detail?id=${s._id}\")`
+     - let d1 = `dispatch(\"/shoe/delete?id=${s._id}\")`
      div(class="col-sm-2" class="m-1")
       div(class="row") #{s.shoeType},(#{s.shoeSize}), #{s.shoeBrand}
-      button.btn( class="btn-primary ml-1", onclick= destination) Update  
-        //- //div(class = "col-sm-2" onclick = `buy(${index})`) Size: #{s.shoeSize} <br/> Type: #{s.shoeType} <br/> Brand: #{s.shoeBrand}
+      button.btn( class="btn-primary ml-1", onclick= destination) Update 
+      button.btn( class="btn-primary ml-1", onclick= d) View
+      button.btn( class="btn-primary ml-1", onclick= d1) Delete 
+      
 
   script.
    function dispatch(path){

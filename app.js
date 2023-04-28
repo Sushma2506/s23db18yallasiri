@@ -5,8 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-passport.use(new LocalStrategy(function(username, password, done) {
-  Account.findOne({ username: username }, function (err, user) {
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+  Account.findOne({ username: username })
+  .then(function (user){
   if (err) { return done(err); }
   if (!user) {
   return done(null, false, { message: 'Incorrect username.' });
@@ -15,8 +17,12 @@ passport.use(new LocalStrategy(function(username, password, done) {
   return done(null, false, { message: 'Incorrect password.' });
   }
   return done(null, user);
-  });
-  }));
+  })
+  .catch(function(err){
+  return done(err)
+  })
+  })
+ )
 var shoe = require("./models/shoe");
 
 // We can seed the collection if needed on server start
@@ -109,6 +115,7 @@ var Account =require('./models/account');
 passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
+
 
 
 // catch 404 and forward to error handler
